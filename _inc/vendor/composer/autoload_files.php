@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    $vendorDir . '/tamtamchik/simple-flash/src/function.php',
+    '6157b075b923803e5ef157aeb43b83bd' => $vendorDir . '/tamtamchik/simple-flash/src/function.php',
 );

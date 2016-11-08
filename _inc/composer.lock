@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e91a2c1388b3005c51008248766f98a2",
+    "hash": "9dfcd385075eda01d0b603aa621e6bcd",
+    "content-hash": "ce2514eeb565dd5f6b82a80def969b6c",
     "packages": [
         {
             "name": "tamtamchik/simple-flash",

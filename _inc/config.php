@@ -32,8 +32,6 @@ $config = [
 
 
 
-// connect to db
-
 
 
 // global functions

@@ -28,7 +28,7 @@
 	function get_post( $id = 0 )
 	{
 		// we have no id
-		if ( !$id && $id = segment(2) ) {
+		if ( !$id && !$id = segment(2) ) {
 			return false;
 		}
 
