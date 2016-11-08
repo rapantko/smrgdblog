@@ -1,0 +1,68 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "e91a2c1388b3005c51008248766f98a2",
+    "packages": [
+        {
+            "name": "tamtamchik/simple-flash",
+            "version": "0.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tamtamchik/simple-flash.git",
+                "reference": "fe4817ac57df004541eda36e965f3f16ea75cc9b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tamtamchik/simple-flash/zipball/fe4817ac57df004541eda36e965f3f16ea75cc9b",
+                "reference": "fe4817ac57df004541eda36e965f3f16ea75cc9b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tamtamchik\\SimpleFlash\\": "src"
+                },
+                "files": [
+                    "src/function.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yuri Tkachenko",
+                    "email": "yuri.tam.tkachenko@gmail.com",
+                    "homepage": "http://tamtamchika.net"
+                }
+            ],
+            "description": "Easy, framework agnostic flash notifications.",
+            "homepage": "http://github.com/tamtamchik/simple-flash",
+            "keywords": [
+                "agnostic",
+                "flash",
+                "messages",
+                "notifications"
+            ],
+            "time": "2015-05-30 09:18:12"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

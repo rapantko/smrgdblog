@@ -1,0 +1,5 @@
+{
+    "require": {
+        "tamtamchik/simple-flash": "^0.4.2"
+    }
+}
