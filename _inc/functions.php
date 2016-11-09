@@ -16,6 +16,7 @@
 	}
 
 
+
 	/**
 	 * Get Post
 	 *
@@ -105,6 +106,7 @@
 		$path = trim( $path, '/' );
 		return filter_var( $base.$path, FILTER_SANITIZE_URL );
 	}
+
 
 
 

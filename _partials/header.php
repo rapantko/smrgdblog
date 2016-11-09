@@ -1,4 +1,3 @@
-<?php require_once '_inc/config.php' ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +14,7 @@
 		var baseURL = '<?= BASE_URL ?>';
 	</script>
 </head>
-<body>
+<body class="<? echo segment(1) ? plain(segment(1)) : 'home'?>">    
 
 <header class="container">
 	<!-- -->
