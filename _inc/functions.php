@@ -15,37 +15,8 @@
 		die();
 	}
 
-
-
-	/**
-	 * Get Post
-	 *
-	 * Tries to fetch a DB post based on URI segment
-	 * Returns false if unable
-	 *
-	 * @param  integer  id of the post to get
-	 * @return DB post  or false
-	 */
-	function get_post( $id = 0 )
-	{
-		// we have no id
-		if ( !$id && !$id = segment(2) ) {
-			return false;
-		}
-
-		global $database;
-
-		$item = $database->get("items", "text", [
-			"id" => $_GET['id']
-		]);
-
-		if ( ! $item ) {
-			return false;
-		}
-
-		return $item;
-	}
-
+	
+	
 
 	/**
 	 * Is AJAX
@@ -194,15 +165,4 @@
 	}
 
 
-	/**
-	 * Plain
-	 *
-	 * Escape (though not from New York)
-	 *
-	 * @param  string $str
-	 * @return string
-	 */
-	function plain( $str )
-	{
-		return htmlspecialchars( $str, ENT_QUOTES );
-	}
+	

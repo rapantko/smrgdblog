@@ -32,16 +32,19 @@ $config = [
 
 ];
 
+
 //connect db
 
 $db = new PDO("{$config['db']['type']}:host={$config['db']['server']};
 	dbname={$config['db']['name']};charset={$config['db']['charset']}",
 	$config['db']['username'], $config['db']['password']);
 
-$db ->setAttribute(PDO::ATTR_ERRMODE, PDO::ATTR_ERRMODE_EXCEPTION);
 
+$db ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 
 // global functions
 require_once 'functions.php';
+require_once 'functions-post.php';
+require_once 'functions-string.php';
