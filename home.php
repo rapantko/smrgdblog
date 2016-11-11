@@ -11,26 +11,26 @@ include_once "_partials/header.php" ?>
 		<h1>VERY MUCH HOMEPAGE</h1>
 	</div>
 	<section class = "box post-list">
-		<?php if (count($results)) : foreach ($results as $post) : ?>
+		<?php if (count($results)) : foreach ($results as $post) : $post= format_post($post)  ?>
 
 			<article id="post-<?= $post->id ?>" class="post">
 				<header class="post-header">
 					<h2>
-						<a href="<?= BASE_URL ?>/post/<?= $post->id ?>/<?= $post->slug ?>">
+						<a href="<?= $post -> link ?>/<?= $post->slug ?>">
 							<?= plain($post->title) ?>
 						</a>
-						<time datetime="<?= date('Y-m-d', strtotime($post->created_at)) ?>">
-							<small> / <?= plain(date('j M Y, G:i',strtotime($post->created_at))) ?></small>
+						<time datetime="<?= $post -> date ?>">
+							<small> / <?= $post -> time ?></small>
 						</time>
 					</h2>
 				</header>
 				<div class="post-content">
 					<p>
-						<?= word_limiter(plain($post->text), 40) ?>
+						<?= $post -> teaser ?>
 					</p>
 				</div>
 				<div class="post-footer">
-					<a class="read-more" href="<?= BASE_URL ?>/post/<?= $post->id ?>/<?= $post->slug ?>">
+					<a class="read-more" href="<?= $post -> link?>">
 						Read more..
 					</a>
 				</div>

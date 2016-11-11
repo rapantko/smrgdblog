@@ -4,7 +4,7 @@
 /**
  * Get Post
  *
- * Tries to fetch a DB post based on URI segment
+ * Tries to fetch a DB post based on URI segment 
  * Returns false if unable
  *
  * @param  integer  id of the post to get
@@ -62,7 +62,27 @@ function get_posts()
 }
 
 function format_post($post) {
+	//CLEANING OUT THE SHIT OUT OF A TEXT
+	$post['title']= plain($post['title']);
+	$post['text'] = plain($post['text']);
+	$post['tags'] = $post['tags'] ? explode('||', $post['tags']) : [];
+	$post['tags'] = array_map('plain' ,$post['tags']);
 
+	//CREATE LINK
+	$post['link'] = BASE_URL . "/post/{$post['id']}/{$post['slug']}";
+	$post['link'] = filter_var($post['link'], FILTER_SANITIZE_URL);
+
+	//DOIN TIMES
+	$post['timestamp'] = strtotime($post['created_at']);
+	$post['time'] = str_replace(' ' , '&nbsp',date('j M Y, G:i', $post['timestamp'] ));
+	$post['date'] = date('Y-m-d',$post['timestamp']);
+
+	//LIMIT THAT SHIT
+
+	$post['teaser'] = word_limiter($post['text'], 40);
+
+
+	
 	return (object)$post;
 
 
