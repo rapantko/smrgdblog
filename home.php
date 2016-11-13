@@ -1,8 +1,10 @@
-<?php 
+<?php
 
-
-$results = get_posts();
-
+try {
+	$results = get_posts();
+} catch (PDOException $e) {
+	$results = [];
+}
 
 
 include_once "_partials/header.php" ?>
@@ -11,7 +13,7 @@ include_once "_partials/header.php" ?>
 		<h1>VERY MUCH HOMEPAGE</h1>
 	</div>
 	<section class = "box post-list">
-		<?php if (count($results)) : foreach ($results as $post) : $post= format_post($post)  ?>
+		<?php if (count($results)) : foreach ($results as $post) :  ?>
 
 			<article id="post-<?= $post->id ?>" class="post">
 				<header class="post-header">

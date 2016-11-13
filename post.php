@@ -1,15 +1,37 @@
 <?php
 
-	echo '<pre>';
-	print_r( 'id: ' . segment(2) );
-	echo '</pre>';
+try {
+	$post = get_post();
+} catch (PDOException $e) {
+	$post = [];
+}
 
-	include_once "_partials/header.php";
+if (!$post) {
+	flash()->error("post doesnt exist");
+	redirect("/");
+}
 
+
+$page_title = $post -> title ;
+
+include_once "_partials/header.php";
 ?>
 
-    <div class="page-header">
-        <h1>VERY MUCH POST</h1>
-    </div>
+
+<section class="box">
+	<article class="post full-post">
+		<header class="post-header">
+			<h1 class="box-heading">
+				<a href="<?=$post -> link?> "><?= $post -> title ?></a>
+				<time datetime="<?= $post -> date ?>">
+					<small><?= $post -> time ?></small>
+				</time>
+			</h1>
+		</header>
+		<div class="post-content">
+			<?= $post -> text ?>
+		</div>
+	</article>
+</section>
 
 <?php include_once "_partials/footer.php" ?>
