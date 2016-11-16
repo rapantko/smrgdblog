@@ -10,7 +10,7 @@ try {
 include_once "_partials/header.php" ?>
 
 	<div class="page-header">
-		<h1>VERY MUCH HOMEPAGE</h1>
+		<h1>SMARAGDOVE SLZY</h1>
 	</div>
 	<section class = "box post-list">
 		<?php if (count($results)) : foreach ($results as $post) :  ?>
@@ -18,13 +18,20 @@ include_once "_partials/header.php" ?>
 			<article id="post-<?= $post->id ?>" class="post">
 				<header class="post-header">
 					<h2>
-						<a href="<?= $post -> link ?>/<?= $post->slug ?>">
+						<a href="<?= $post -> link ?>">
 							<?= plain($post->title) ?>
 						</a>
 						<time datetime="<?= $post -> date ?>">
 							<small> / <?= $post -> time ?></small>
 						</time>
 					</h2>
+					<?php if ($post -> tags) : ?>
+					<p class = "tags">
+						<?php foreach ($post -> links as $tag => $tag_link) : ?>
+							<a href="<?= $tag_link ?>" class="btn btn-warning btn-xs"><small><?=$tag?></small></a>
+						<?php endforeach ?>
+					</p>
+				<?php endif ?>
 				</header>
 				<div class="post-content">
 					<p>

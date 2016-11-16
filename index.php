@@ -21,6 +21,12 @@
 			'POST' => '_inc/post-edit.php',  // store new values
 		],
 
+		// TAG
+		'/tag' => [
+			'GET'  => 'tag.php',            // edit form
+		],
+
+
 		// DELETE
 		'/delete' => [
 			'GET'  => 'delete.php',           // delete form

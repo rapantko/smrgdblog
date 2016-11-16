@@ -9,7 +9,7 @@
 ?>
 
     <div class="page-header">
-        <h1>VERY MUCH EDIT</h1>
+        <h1>EDIT</h1>
     </div>
 
 <?php include_once "_partials/footer.php" ?>

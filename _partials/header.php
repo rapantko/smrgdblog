@@ -17,6 +17,9 @@
 <body class="<? echo segment(1) ? plain(segment(1)) : 'home'?>">
 
 <header class="container">
+	<div class="navigation btn-group btn-group-xs pull-left">
+		<a href=" <?= BASE_URL ?>">HOME</a>
+	</div>
 	<?php
 
 		flash()->display()

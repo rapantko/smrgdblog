@@ -7,7 +7,7 @@ try {
 }
 
 if (!$post) {
-	flash()->error("post doesnt exist");
+	flash()->error("post doesn't exist");
 	redirect("/");
 }
 
