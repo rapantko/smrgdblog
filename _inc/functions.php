@@ -135,7 +135,7 @@
 		else
 		{
 			$page = ltrim($page, '/');
-			$location = BASE_URL . "/$page";
+			$location = $page;
 		}
 
 		header("Location: $location", true, $status_code);

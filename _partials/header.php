@@ -17,14 +17,12 @@
 <body class="<? echo segment(1) ? plain(segment(1)) : 'home'?>">
 
 <header class="container">
+	<?= flash()->display() ?>
 	<div class="navigation btn-group btn-group-xs pull-left">
 		<a href=" <?= BASE_URL ?>">HOME</a>
+		<a href=" <?= BASE_URL.'/post/new' ?>">ADD POST</a>
 	</div>
-	<?php
 
-		flash()->display()
-
-	?>
 </header>
 
 <main>

@@ -1,7 +1,14 @@
 <?php
 
+$id = segment(2);
+
+if ( $id === 'new') {
+	include_once 'add.php';
+	die();
+}
+
 try {
-	$post = get_post();
+	$post = get_post($id);
 } catch (PDOException $e) {
 	$post = [];
 }
@@ -26,11 +33,21 @@ include_once "_partials/header.php";
 				<time datetime="<?= $post -> date ?>">
 					<small><?= $post -> time ?></small>
 				</time>
+				<a href="<?= get_post_link($post ,'edit') ?>"class="btn btn-xs edit-link">Edit</a>
 			</h1>
 		</header>
 		<div class="post-content">
 			<?= $post -> text ?>
 		</div>
+		<footer class="post-footer">
+			<?php if ($post -> tags) : ?>
+				<p class = "tags">
+					<?php foreach ($post -> links as $tag => $tag_link) : ?>
+						<a href="<?= $tag_link ?>" class="btn btn-warning btn-xs"><small><?=$tag?></small></a>
+					<?php endforeach ?>
+				</p>
+			<?php endif ?>
+		</footer>
 	</article>
 </section>
 
