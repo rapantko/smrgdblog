@@ -120,28 +120,29 @@
 
 
 
-	/**
-	 * Redirect
-	 *
-	 * @param $page
-	 * @param int $status_code
-	 */
-	function redirect( $page, $status_code = 302 )
+/**
+ * Redirect
+ *
+ * @param $page
+ * @param int $status_code
+ */
+function redirect( $page, $status_code = 302 )
+{
+	if ( $page == 'back' )
 	{
-		if ( $page == 'back' )
-		{
-			$location = $_SERVER['HTTP_REFERER'];
-		}
-		else
-		{
-			$page = ltrim($page, '/');
-			$location = $page;
-		}
+		$location = $_SERVER['HTTP_REFERER'];
+	}
+	else
+	{
+		$page = str_replace( BASE_URL, '', $page );
+		$page = ltrim($page, '/');
 
-		header("Location: $location", true, $status_code);
-		die();
+		$location = BASE_URL . "/$page";
 	}
 
+	header("Location: $location", true, $status_code);
+	die();
+}
 
 	/**
 	 * Make File

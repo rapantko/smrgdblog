@@ -125,6 +125,7 @@ function get_posts($auto_format = true)
 	LEFT JOIN posts_tags pt on (p.id = pt.post_id)
 	LEFT JOIN tags t ON (t.id = pt.tag_id)
 	GROUP BY p.id
+	ORDER BY p.created_at DESC
 	
 	");
 
@@ -267,26 +268,24 @@ function get_all_tags($post_id = 0)
  *
  * @return array|bool
  */
-function validate_post() {
+function validate_post()
+{
 
-	$title   = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
-	$text    = filter_input(INPUT_POST, 'text', FILTER_SANITIZE_STRING);
-	$tags    = filter_input(INPUT_POST, 'tags', FILTER_VALIDATE_INT, FILTER_REQUIRE_ARRAY);
+	$title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+	$text  = filter_input(INPUT_POST, 'text', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+	$tags  = filter_input(INPUT_POST, 'tags', FILTER_VALIDATE_INT, FILTER_REQUIRE_ARRAY);
 
 //title , id and text are required
 
-	if (isset($_POST['post-id'])) {
+	if (isset($_POST['post_id'])) {
 		$post_id = filter_input(INPUT_POST, 'post_id', FILTER_VALIDATE_INT);
 
 		if (!$post_id) {
 			flash()->error('You are about to edit what ?');
 		}
-	}
-	else {
+	} else {
 		$post_id = false;
 	}
-
-
 
 
 	if (!$title = trim($title)) {
@@ -300,10 +299,16 @@ function validate_post() {
 //Error messages have been found, so you will be redirected back home
 
 	if (flash()->hasMessages()) {
+		$_SESSION['form_data'] = [
+			'title' => $title,
+			'text'  => $text,
+			'tags'  => $tags ?: []
+		];
+
 		return false;
 	}
 
 	return compact(
-	'post_id','title','text','tags',$post_id,$title,$text,$tags
+		'post_id', 'title', 'text', 'tags', $post_id, $title, $text, $tags
 	);
 }

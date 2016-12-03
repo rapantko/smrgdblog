@@ -8,6 +8,11 @@ $page_title = 'Add new' ;
 
 include_once "_partials/header.php";
 
+if (isset($_SESSION['form_data'])) {
+	extract($_SESSION['form_data']);
+	unset($_SESSION['form_data']);
+}
+
 ?>
 	<section class="box">
 		<form action="<?= BASE_URL ?>/_admin/add-item.php" method="post" class="post">
@@ -18,11 +23,11 @@ include_once "_partials/header.php";
 			</header>
 
 			<div class="form-group">
-				<input type="text" name="title" class="form-control" value="" placeholder="title your shit">
+				<input type="text" name="title" class="form-control" value="<?= $title ?: '' ?>" placeholder="title your shit">
 			</div>
 
 			<div class="form-group">
-				<textarea class="form-control" name="text" rows="16" placeholder="write your shit"></textarea>
+				<textarea class="form-control" name="text" rows="16" placeholder="write your shit"><?= $text ?></textarea>
 			</div>
 
 			<div class="form-group form-inline">

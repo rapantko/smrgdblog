@@ -58,4 +58,5 @@ if (isset($tags) && $tags = array_filter($tags)) {
 
 //redirect back
 
+
 redirect(get_post_link($post));
